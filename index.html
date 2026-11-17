@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Belar Consulting</title>
+<meta name="description" content="Consultoría para fintechs de Latinoamérica: liderazgo operativo y expansión a nuevos países, paso a paso.">
+<meta name="theme-color" content="#0A1A2C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Belar Consulting">
+<meta property="og:description" content="Consultoría para fintechs de Latinoamérica: liderazgo operativo y expansión a nuevos países, paso a paso.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1A2C'/%3E%3Ctext x='15' y='44' font-family='Arial,sans-serif' font-size='38' fill='%23EAF2FF'%3EB%3C/text%3E%3Ccircle cx='46' cy='41' r='4.5' fill='%233DDBA0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap">
+<style>
+/* Layout concept: a dark-first page where one mint line, the corridor, runs from the hero arcs to the closing contact. Sections are separated by quiet hairlines, steps and tactical offers sit on raised surfaces. */
+:root {
+  --bg: #0A1A2C; --surface: #12304D; --surface2: #0E2540; --ink: #EAF2FF; --muted: #9FB3CB; --line: #24486B;
+  --accent: #3DDBA0; --accent-ink: #0A1A2C; --sky: #8FB8FF; --glow: rgba(61,219,160,.10);
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #EAF2FF; --surface: #F7FAFF; --surface2: #F1F6FF; --ink: #0A1A2C; --muted: #3F566F; --line: #C5D4EA;
+  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08); color-scheme: light; } }
+:root[data-theme="light"] {
+  --bg: #EAF2FF; --surface: #F7FAFF; --surface2: #F1F6FF; --ink: #0A1A2C; --muted: #3F566F; --line: #C5D4EA;
+  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08); color-scheme: light; }
+[hidden] { display: none !important; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-weight: 300; font-size: 18px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1180px; margin: 0 auto; }
+h1, h2, h3, h4, p, ul, ol, dl, dd { margin: 0; }
+a { color: inherit; }
+em { font-style: normal; color: var(--accent); font-weight: 500; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px; }
+.brand { text-decoration: none; display: inline-block; line-height: 1; }
+.brand .w { font-size: 30px; font-weight: 300; letter-spacing: -0.01em; }
+.brand .w i { font-style: normal; color: var(--accent); }
+.brand .s { display: block; font-size: 9px; font-weight: 400; letter-spacing: 0.34em; margin-top: 4px; padding-left: 2px; }
+nav { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 400; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+.lang { font: 400 13px var(--font); letter-spacing: 0.12em; color: var(--ink); background: transparent; border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+.lang:hover, .lang:focus-visible { border-color: var(--accent); outline: none; }
+a:focus-visible, .btn:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.label { font-weight: 400; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 56px 88px; background: radial-gradient(ellipse 28% 46% at 70% 50%, var(--glow), transparent); }
+.eyebrow { font-weight: 400; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+h1 { font-weight: 300; font-size: clamp(2.6rem, 6vw, 4.9rem); line-height: 1.03; letter-spacing: -0.025em; text-wrap: balance; }
+.lead { margin-top: 26px; color: var(--muted); max-width: 34em; }
+.tagline { margin-top: 18px; font-weight: 400; color: var(--sky); }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.btn { display: inline-block; padding: 13px 26px; border-radius: 999px; font: 500 16px var(--font); text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+.btn.ghost:hover { border-color: var(--accent); }
+.art { width: 100%; height: auto; display: block; }
+.spec { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.spec dt { font-weight: 400; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.spec dd { font-weight: 400; margin-top: 4px; font-size: 16px; line-height: 1.35; }
+.sec { padding-block: 80px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 56px; align-items: start; }
+h2 { font-weight: 300; font-size: clamp(2.1rem, 4.4vw, 3.5rem); line-height: 1.06; letter-spacing: -0.02em; margin-top: 14px; text-wrap: balance; }
+.aka { margin-top: 10px; color: var(--sky); font-weight: 400; }
+.pill { display: inline-block; margin-top: 18px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; font-weight: 500; color: var(--accent); }
+.msg { font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.25; font-weight: 400; text-wrap: balance; }
+.msg2 { font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.35; font-weight: 400; text-wrap: balance; }
+.body-l { margin-top: 18px; color: var(--muted); max-width: 38em; }
+.sub { font-weight: 500; font-size: 1.25rem; margin-bottom: 18px; }
+.block { margin-top: 64px; }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 56px; }
+.pillars.four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.pillars h3 { font-weight: 500; font-size: 1.3rem; line-height: 1.25; margin-bottom: 8px; }
+.pillars.four h3 { font-size: 1.1rem; }
+.pillars p { color: var(--muted); }
+.ic { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); color: var(--accent); margin-bottom: 14px; }
+.ic svg { width: 26px; height: 26px; }
+.ic.big { margin-bottom: 22px; }
+.ic.sm { width: 36px; height: 36px; margin: 0; flex: none; }
+.ic.sm svg { width: 20px; height: 20px; }
+ol.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.card { position: relative; padding: 26px 22px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; min-width: 0; }
+.card .sn { position: absolute; top: 22px; right: 22px; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-weight: 500; font-size: 14px; display: grid; place-items: center; }
+.card h3 { font-weight: 500; font-size: 1.15rem; line-height: 1.25; margin-bottom: 8px; }
+.card p { font-size: 16px; line-height: 1.5; color: var(--muted); }
+ul.chips { list-style: none; padding: 0; margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
+ul.chips li { padding: 10px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 16px; line-height: 1.3; }
+.tcard { margin-top: 64px; padding: 36px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 56px; align-items: start; }
+.tcard .tt { font-weight: 300; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.1; margin-top: 10px; text-wrap: balance; }
+.tcard .btn { margin-top: 26px; }
+.corridor { display: grid; grid-template-columns: minmax(0, 1fr) 110px minmax(0, 1fr) 110px minmax(0, 1fr); align-items: center; padding: 8px 0; }
+.node { position: relative; padding: 24px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; min-width: 0; }
+.node.end { border-color: var(--accent); }
+.node .dot { display: block; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); margin-bottom: 14px; }
+.node.end .dot { background: var(--accent); }
+.node h3 { font-weight: 500; font-size: 1.3rem; line-height: 1.2; }
+.node p { margin-top: 6px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.link { display: flex; flex-direction: column; gap: 14px; align-items: stretch; padding: 0 10px; color: var(--accent); }
+.lane { display: flex; flex-direction: column; gap: 2px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400; color: var(--muted); }
+.lane svg { width: 100%; height: 12px; display: block; color: var(--accent); }
+.lane.rev { text-align: right; flex-direction: column-reverse; }
+.corr-note { display: flex; gap: 12px; align-items: center; margin-top: 20px; color: var(--muted); font-size: 16px; }
+.ctx { padding-top: 40px; border-top: 1px solid var(--line); }
+.ctx-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; margin-top: 8px; }
+.ctx-grid article { display: flex; gap: 14px; align-items: flex-start; }
+.ctx-grid .ic { width: 44px; height: 44px; margin: 0; flex: none; }
+.ctx h4 { font-weight: 500; font-size: 1.05rem; margin-bottom: 6px; }
+.ctx p { font-size: 16px; color: var(--muted); }
+.small { margin-top: 32px; font-size: 14px; color: var(--muted); max-width: 60em; }
+.faq { display: flex; flex-direction: column; }
+.faq details { border-top: 1px solid var(--line); padding: 20px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; font-weight: 500; font-size: 1.15rem; line-height: 1.35; list-style: none; display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-size: 1.5rem; font-weight: 300; line-height: 1; flex: none; }
+.faq details[open] summary::after { content: "\2013"; }
+.faq details p { margin-top: 12px; color: var(--muted); max-width: 38em; }
+.closing { text-align: left; }
+.closing .big { font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.04; max-width: 14em; }
+.closing .body-l { margin-top: 20px; }
+.mailrow { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 36px; }
+.mail { font-weight: 500; font-size: clamp(1.4rem, 3.6vw, 2.4rem); letter-spacing: -0.01em; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; overflow-wrap: anywhere; user-select: all; }
+footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+.page[hidden] { display: none; }
+nav a[aria-current="page"] { color: var(--ink); box-shadow: 0 2px 0 var(--accent); padding-bottom: 4px; }
+.sec.first { border-top: 0; padding-top: 40px; }
+.body-l.first { margin-top: 0; }
+.sub.spaced { margin-top: 36px; margin-bottom: 4px; }
+ul.checks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; font-size: 16px; line-height: 1.3; }
+.ck { display: grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--accent); color: var(--accent-ink); }
+.ck svg { width: 15px; height: 15px; }
+.band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; }
+.band h2 { margin-top: 10px; }
+.lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.line { display: flex; flex-direction: column; gap: 10px; padding: 32px 30px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; text-decoration: none; min-width: 0; }
+.line:hover, .line:focus-visible { border-color: var(--accent); outline: none; }
+.line h3 { font-weight: 300; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.1; letter-spacing: -0.01em; }
+.line .l-body { font-weight: 400; font-size: 1.1rem; line-height: 1.4; }
+.line .l-tact { color: var(--muted); font-size: 16px; }
+.line .go { margin-top: auto; padding-top: 14px; color: var(--accent); font-weight: 500; }
+.line .go i { font-style: normal; }
+@media (max-width: 1040px) {
+  ol.steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillars.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 960px) {
+  .hero, .sec-head, .tcard, .pillars, .ctx-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero { gap: 40px; padding-block: 32px 64px; }
+  .sec { padding-block: 64px; }
+  .sec-head { gap: 20px; }
+  .pillars { gap: 32px; }
+  .tcard { padding: 26px 22px; gap: 20px; }
+  .corridor { grid-template-columns: minmax(0, 1fr); }
+  .link { flex-direction: row; justify-content: center; gap: 24px; padding: 14px 0; }
+  .lane { width: 120px; }
+  .lane svg { transform: rotate(90deg); width: 40px; height: 12px; align-self: center; margin: 14px 0; }
+  .lane.rev { text-align: left; }
+}
+@media (max-width: 720px) { .spec, .lines, ul.checks { grid-template-columns: minmax(0, 1fr); } nav { gap: 18px; } .band { flex-direction: column; align-items: flex-start; } }
+@media (max-width: 480px) { .n-home { display: none; } nav { gap: 14px; font-size: 14px; } header { gap: 12px; } }
+@media (max-width: 560px) { ol.steps, .pillars.four { grid-template-columns: minmax(0, 1fr); } .lane { width: 90px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="#inicio" aria-label="Belar Consulting"><span class="w">Belar<i>.</i></span><span class="s">CONSULTING</span></a><nav aria-label="Principal">
+  <a href="#inicio" data-page="inicio" class="n-home"><span data-k="k166">Inicio</span></a>
+  <a href="#servicios" data-page="servicios"><span data-k="k167">Servicios</span></a>
+  <a href="#contacto" data-page="contacto"><span data-k="k168">Contacto</span></a>
+  <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+</nav></header>
+<main>
+<div class="page" id="p-inicio">
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow" data-k="k1">Consultoría para fintechs de Latam</p>
+    <h1><span data-k="k2">Crece con orden.</span> <span data-k="k3">Cruza con</span> <em><span data-k="k4">respaldo.</span></em></h1>
+    <p class="lead" data-k="k5">Operaciones y expansión para fintechs de Latinoamérica.</p>
+    <p class="tagline" data-k="k6">Te acompañamos a cruzar, paso a paso.</p>
+    <div class="cta">
+      <a class="btn primary" href="#servicios"><span data-k="k7">Ver servicios</span></a>
+      <a class="btn ghost" href="#contacto"><span data-k="k8">Hablemos</span></a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg class="art" viewBox="0 0 660 400" role="img" aria-label="Arcos concéntricos cruzados por un trazo menta" data-aria="art">
+<path d="M270 372 A60 60 0 0 1 390 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/><path d="M220 372 A110 110 0 0 1 440 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/><path d="M170 372 A160 160 0 0 1 490 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/><path d="M120 372 A210 210 0 0 1 540 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/><path d="M70 372 A260 260 0 0 1 590 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/><path d="M20 372 A310 310 0 0 1 640 372" fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M30 340 C 200 330, 280 130, 612 72" fill="none" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round"/>
+<circle cx="612" cy="72" r="7.5" fill="var(--accent)"/>
+</svg>
+    <dl class="spec">
+      <div><dt><span data-k="k9">Operación</span></dt><dd><span data-k="k10">Equipo y procesos alineados</span></dd></div>
+      <div><dt><span data-k="k11">Expansión</span></dt><dd><span data-k="k12">Nuevos mercados con respaldo</span></dd></div>
+      <div><dt><span data-k="k13">Corredores</span></dt><dd><span data-k="k14">Entrada y salida de fondos</span></dd></div>
+    </dl>
+  </div>
+</section>
+<section class="sec first" id="beneficios">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k99">Lo que cambia</p>
+      <h2><span data-k="k100">Menos fricción para crecer,</span> <em><span data-k="k101">más respaldo para expandirte.</span></em></h2>
+    </div>
+    <div><p class="body-l" data-k="k102">Trabajamos junto a tu equipo para que la operación deje de ser el freno y la expansión deje de ser un salto al vacío.</p></div>
+  </div>
+  <div class="pillars"><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6M6 8l5 8M18 8l-5 8"/></svg></span><h3 data-k="k93">Una operación que sostiene el crecimiento</h3><p data-k="k94">Roles, procesos y prioridades claros para que crecer no desordene al equipo.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg></span><h3 data-k="k95">Decisiones con datos</h3><p data-k="k96">KPIs y salud financiera que todas las áreas leen igual.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14M14 4l4 4-4 4"/><path d="M20 16H6M10 12l-4 4 4 4"/></svg></span><h3 data-k="k97">Nuevos mercados con respaldo</h3><p data-k="k98">Proveedores locales, flujo de fondos y pruebas controladas antes de escalar.</p></article></div>
+</section>
+<section class="sec" id="apoyo">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k107">Apoyo operativo</p>
+      <h2><span data-k="k108">Experiencia operativa</span> <em><span data-k="k109">dentro de tu equipo.</span></em></h2>
+    </div>
+    <div>
+      <p class="body-l first" data-k="k110">Trabajamos a tu lado, no desde afuera: ordenamos prioridades, procesos y responsables, y lo dejamos funcionando sin depender de nosotros.</p>
+      <h3 class="sub spaced" data-k="k111">Lo que empiezas a notar</h3>
+      <ul class="checks"><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-k="k103">Cada rol con su responsable</span></li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-k="k104">Incidentes que dejan de repetirse</span></li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-k="k105">Una sola versión de los números</span></li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-k="k106">Fundadores de vuelta en la estrategia</span></li></ul>
+    </div>
+  </div>
+</section>
+<section class="sec" id="expansion">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k115">Expansión y nuevos corredores</p>
+      <h2><span data-k="k116">Abre nuevos corredores</span> <em><span data-k="k117">sin ir a ciegas.</span></em></h2>
+    </div>
+    <div>
+      <p class="body-l first" data-k="k118">Te acompañamos a conectar tu fintech con proveedores locales, a diseñar cómo entra y sale el dinero y a probar el corredor antes de escalar.</p>
+      <ul class="chips"><li data-k="k112">Proveedores seleccionados contigo</li><li data-k="k113">Flujo de fondos de punta a punta</li><li data-k="k114">Pruebas con montos topados antes de escalar</li></ul>
+    </div>
+  </div>
+  <div class="block">
+<div class="corridor" role="group" aria-label="Corredor de entrada y salida" data-aria="cor">
+  <div class="node"><span class="dot"></span><h3 data-k="k59">Tu fintech</h3><p data-k="k60">Con operación lista para crecer</p></div><div class="link" aria-hidden="true"><span class="lane"><span data-k="k57">Entrada</span><svg viewBox="0 0 80 12"><path d="M0 6h74M68 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lane rev"><svg viewBox="0 0 80 12"><path d="M80 6H6M12 1L6 6l6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="k58">Salida</span></span></div><div class="node mid"><span class="dot"></span><h3 data-k="k61">Rampas locales</h3><p data-k="k62">Proveedores seleccionados contigo</p></div><div class="link" aria-hidden="true"><span class="lane"><span data-k="k57">Entrada</span><svg viewBox="0 0 80 12"><path d="M0 6h74M68 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lane rev"><svg viewBox="0 0 80 12"><path d="M80 6H6M12 1L6 6l6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="k58">Salida</span></span></div><div class="node end"><span class="dot"></span><h3 data-k="k63">Nuevo mercado</h3><p data-k="k64">Tu próximo corredor, operando</p></div>
+</div>
+<p class="corr-note"><span class="ic sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span data-k="k65">Los fondos no pasan por Belar: los operan tu fintech y los proveedores.</span></p></div>
+</section>
+<section class="sec" id="limites">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k143">Límites</p>
+      <h2><span data-k="k144">Asesoramos.</span> <em><span data-k="k145">No operamos tu dinero.</span></em></h2>
+    </div>
+    <div><p class="body-l" data-k="k146">Reglas claras, escritas en cada contrato.</p></div>
+  </div>
+  <div class="pillars four"><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><h3 data-k="k135">No movemos fondos</h3><p data-k="k136">Nunca recibimos ni custodiamos dinero.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.5-1-1.5-1.5-2.7-1.5-1.6 0-2.7.9-2.7 2.1 0 3 5.6 1.4 5.6 4.4 0 1.2-1.1 2.1-2.8 2.1-1.3 0-2.4-.6-2.9-1.6M12 6v1.7M12 16.3V18"/></svg></span><h3 data-k="k137">No cotizamos tipos de cambio</h3><p data-k="k138">Ni a nombre propio ni con garantías.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 7a3.2 3.2 0 0 0 6 0zM19 7l-3 7a3.2 3.2 0 0 0 6 0z"/></svg></span><h3 data-k="k139">Sin opinión legal propia</h3><p data-k="k140">Para eso, abogados aliados.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg></span><h3 data-k="k141">Comisiones a la vista</h3><p data-k="k142">Las de proveedores, siempre por escrito.</p></article></div>
+</section>
+<section class="sec band">
+  <div>
+    <p class="label" data-k="k119">¿Quieres ver cómo lo hacemos?</p>
+    <h2><span data-k="k120">Conoce nuestras</span> <em><span data-k="k121">dos líneas de trabajo.</span></em></h2>
+  </div>
+  <a class="btn primary" href="#servicios"><span data-k="k122">Ver servicios</span></a>
+</section></div>
+<div class="page" id="p-servicios" hidden>
+<section class="sec first" id="servicios-top">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k131">Servicios</p>
+      <h2><span data-k="k132">Dos líneas de trabajo,</span> <em><span data-k="k133">un mismo acompañamiento.</span></em></h2>
+    </div>
+    <div><p class="body-l" data-k="k134">Elige la que encaja con lo que tu fintech necesita hoy. Cada línea tiene un servicio principal y un equipo táctico para lo puntual.</p></div>
+  </div>
+  <div class="lines"><a class="line" href="#embedded-coo"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6M6 8l5 8M18 8l-5 8"/></svg></span><p class="label" data-k="k123">Operación</p><h3>Embedded COO</h3><p class="l-body" data-k="k124">Liderazgo operativo senior dentro de tu equipo, por un período definido.</p><p class="l-tact" data-k="k125">Incluye Tactical Ops Team para un problema específico.</p><span class="go"><span data-k="k126">Ver detalle</span> <i aria-hidden="true">&darr;</i></span></a><a class="line" href="#latam-launchpad"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14M14 4l4 4-4 4"/><path d="M20 16H6M10 12l-4 4 4 4"/></svg></span><p class="label" data-k="k127">Expansión</p><h3>Latam Launchpad</h3><p class="l-body" data-k="k128">Tu primer corredor de entrada y salida en un nuevo país de Latam. Referencia: 8–10 semanas.</p><p class="l-tact" data-k="k129">Incluye Tactical Orchestrator para una necesidad puntual.</p><span class="go"><span data-k="k130">Ver detalle</span> <i aria-hidden="true">&darr;</i></span></a></div>
+</section>
+<section class="sec" id="embedded-coo">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k33">Servicio principal · para fintechs en Latam</p>
+      <h2>Embedded COO</h2>
+      <p class="aka" data-k="k34">COO fraccional</p>
+    </div>
+    <div>
+      <p class="msg"><span data-k="k35">Continúa creciendo sin que la operación</span> <em><span data-k="k36">te frene.</span></em></p>
+      <p class="body-l" data-k="k37">Liderazgo operativo senior por un período definido, sin el costo de un ejecutivo de tiempo completo.</p>
+    </div>
+  </div>
+  <div class="pillars"><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><h3 data-k="k15">Estrategia en ejecución</h3><p data-k="k16">Prioridades y responsables claros.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6M6 8l5 8M18 8l-5 8"/></svg></span><h3 data-k="k17">Sistemas y procesos</h3><p data-k="k18">Procesos claros y el equipo correcto en cada rol.</p></article><article><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg></span><h3 data-k="k19">KPIs y salud financiera</h3><p data-k="k20">Decisiones con datos.</p></article></div>
+  <div class="block">
+    <h3 class="sub" data-k="k38">Cómo trabajamos</h3>
+    <ol class="steps"><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span><span class="sn" aria-hidden="true">1</span><h3 data-k="k21">Diagnóstico operativo</h3><p data-k="k22">Cómo opera hoy el negocio.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg></span><span class="sn" aria-hidden="true">2</span><h3 data-k="k23">Plan de ejecución</h3><p data-k="k24">Prioridades, responsables y métricas.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.4.3 4 2.3 4 5"/></svg></span><span class="sn" aria-hidden="true">3</span><h3 data-k="k25">Ejecución acompañada</h3><p data-k="k26">Trabajamos dentro de tu equipo.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></span><span class="sn" aria-hidden="true">4</span><h3 data-k="k27">Traspaso</h3><p data-k="k28">Todo funciona sin nosotros.</p></li></ol>
+  </div>
+  <div class="block">
+    <h3 class="sub" data-k="k39">Señales de que es el momento</h3>
+    <ul class="chips"><li data-k="k29">Roles superpuestos o vacíos</li><li data-k="k30">Incidentes que se repiten</li><li data-k="k31">Cada área con sus propios números</li><li data-k="k32">Un fundador haciendo de COO a la fuerza</li></ul>
+  </div>
+  <div class="tcard">
+    <div>
+      <span class="ic big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg></span>
+      <p class="label" data-k="k40">Tactical Ops Team</p>
+      <h3 class="tt" data-k="k41">¿Un problema específico?</h3>
+    </div>
+    <div>
+      <p class="msg2" data-k="k42">Lo resolvemos sin el proceso estándar, con alcance, entregable y plazo por escrito.</p>
+      <ul class="chips"><li data-k="k43">Cierre financiero</li><li data-k="k44">Proceso de soporte</li><li data-k="k45">Tablero de KPIs</li></ul>
+      <a class="btn ghost" href="#contacto"><span data-k="k46">Cuéntanos el problema</span></a>
+    </div>
+  </div>
+</section>
+<section class="sec" id="latam-launchpad">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k78">Expansión · para fintechs que entran a Latam</p>
+      <h2>Latam Launchpad</h2>
+      <p class="pill"><span data-k="k79">Referencia: 8–10 semanas</span></p>
+    </div>
+    <div>
+      <p class="msg"><span data-k="k80">Abre tu primer corredor</span> <em><span data-k="k81">en un nuevo país.</span></em></p>
+      <p class="body-l" data-k="k82">Te acompañamos a seleccionar proveedores locales, diseñar el flujo de fondos y poner a operar tu primer corredor. Para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.</p>
+    </div>
+  </div>
+  <div class="block">
+<div class="corridor" role="group" aria-label="Corredor de entrada y salida" data-aria="cor">
+  <div class="node"><span class="dot"></span><h3 data-k="k50">Tu fintech</h3><p data-k="k51">Licenciada en EE.UU. o Latam</p></div><div class="link" aria-hidden="true"><span class="lane"><span data-k="k48">Entrada</span><svg viewBox="0 0 80 12"><path d="M0 6h74M68 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lane rev"><svg viewBox="0 0 80 12"><path d="M80 6H6M12 1L6 6l6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="k49">Salida</span></span></div><div class="node mid"><span class="dot"></span><h3 data-k="k52">Rampas locales</h3><p data-k="k53">Proveedores seleccionados contigo</p></div><div class="link" aria-hidden="true"><span class="lane"><span data-k="k48">Entrada</span><svg viewBox="0 0 80 12"><path d="M0 6h74M68 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lane rev"><svg viewBox="0 0 80 12"><path d="M80 6H6M12 1L6 6l6 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="k49">Salida</span></span></div><div class="node end"><span class="dot"></span><h3 data-k="k54">País de destino</h3><p data-k="k55">Tu primer corredor, operando</p></div>
+</div>
+<p class="corr-note"><span class="ic sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span data-k="k56">Los fondos no pasan por Belar: los operan tu fintech y los proveedores.</span></p></div>
+  <div class="block">
+    <h3 class="sub" data-k="k83">Cuatro pasos hasta tu primer corredor</h3>
+    <ol class="steps"><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 11h6M9 15h4"/></svg></span><span class="sn" aria-hidden="true">1</span><h3 data-k="k66">Plan de entrada recomendado</h3><p data-k="k67">La ruta de entrada que mejor encaja con tu fintech.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.4.3 4 2.3 4 5"/></svg></span><span class="sn" aria-hidden="true">2</span><h3 data-k="k68">Selección de proveedores</h3><p data-k="k69">Comparamos proveedores con criterios documentados y te acompañamos en las negociaciones.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6M6 8l5 8M18 8l-5 8"/></svg></span><span class="sn" aria-hidden="true">3</span><h3 data-k="k70">Diseño del flujo de fondos</h3><p data-k="k71">Cómo entra y sale el dinero, de punta a punta.</p></li><li class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></span><span class="sn" aria-hidden="true">4</span><h3 data-k="k72">Plan piloto con montos topados</h3><p data-k="k73">Probamos el corredor con montos limitados antes de escalar.</p></li></ol>
+  </div>
+  <div class="tcard">
+    <div>
+      <span class="ic big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+      <p class="label" data-k="k84">Tactical Orchestrator</p>
+      <h3 class="tt" data-k="k85">¿Solo necesitas resolver algo puntual?</h3>
+    </div>
+    <div>
+      <p class="msg2" data-k="k86">Resolvemos necesidades específicas a través de alianzas con empresas locales, con alcance, entregable y plazo por escrito.</p>
+      <ul class="chips"><li data-k="k87">Ruta regulatoria de entrada</li><li data-k="k88">Riesgo de cumplimiento y screening</li><li data-k="k89">Representación temporal</li><li data-k="k90">Integraciones con proveedores locales</li></ul>
+      <a class="btn ghost" href="#contacto"><span data-k="k91">Cuéntanos la necesidad</span></a>
+    </div>
+  </div>
+  <div class="block ctx">
+    <h3 class="sub" data-k="k92">Señales de que es el momento</h3>
+    <ul class="chips"><li data-k="k74">Tus clientes ya te piden ese país</li><li data-k="k75">Tienes licencia pero no proveedores locales</li><li data-k="k76">Debes elegir proveedores sin conocer el mercado</li><li data-k="k77">Quieres probar con montos topados antes de comprometerte</li></ul>
+  </div>
+</section>
+<section class="sec" id="preguntas">
+  <div class="sec-head">
+    <div>
+      <p class="label" data-k="k157">Preguntas frecuentes</p>
+      <h2><span data-k="k158">Lo que suelen</span> <em><span data-k="k159">preguntar.</span></em></h2>
+    </div>
+    <div class="faq"><details><summary><span data-k="k147">¿Belar mueve o custodia dinero?</span></summary><p data-k="k148">No. Nunca recibimos, custodiamos ni movemos fondos. Los flujos los operan tu fintech y los proveedores locales; nosotros te acompañamos a diseñarlos y ponerlos a funcionar.</p></details><details><summary><span data-k="k149">¿Dan opinión legal?</span></summary><p data-k="k150">No damos opinión legal propia. La ruta regulatoria, el cumplimiento y el screening se validan con abogados aliados.</p></details><details><summary><span data-k="k151">¿Para quién es cada servicio?</span></summary><p data-k="k152">Embedded COO es para fintechs de Latam con producto y tracción cuyo crecimiento superó a la organización. Latam Launchpad es para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.</p></details><details><summary><span data-k="k153">¿Qué es un equipo táctico?</span></summary><p data-k="k154">Un servicio para resolver un problema o una necesidad específica sin pasar por el proceso estándar, con alcance, entregable y plazo por escrito. Existe en cada línea: Tactical Ops Team para operaciones y Tactical Orchestrator para expansión.</p></details><details><summary><span data-k="k155">¿Cuánto toma y cuánto cuesta?</span></summary><p data-k="k156">Latam Launchpad tiene una referencia de 8 a 10 semanas, con la evaluación de la ruta incluida. Embedded COO dura un período definido según el alcance. El precio depende del alcance: escríbenos y te respondemos con un siguiente paso.</p></details></div>
+  </div>
+</section></div>
+
+<section class="sec closing" id="contacto">
+  <p class="label" data-k="k160">Hablemos</p>
+  <h2 class="big"><span data-k="k161">Cuéntanos dónde</span> <em><span data-k="k162">está tu fintech.</span></em></h2>
+  <p class="body-l" data-k="k163">Te respondemos con un siguiente paso.</p>
+  <div class="mailrow">
+    <button class="btn primary" id="reveal" type="button"><span data-k="k164">Mostrar correo</span></button>
+    <a class="mail" id="mail" hidden></a>
+    <button class="btn ghost" id="copy" type="button" hidden><span data-k="k165">Copiar correo</span></button>
+  </div>
+</section>
+</main>
+<footer><span data-k="k169">Belar Consulting. Los servicios no constituyen asesoría legal ni financiera.</span></footer>
+</div>
+<script>
+(function () {
+  var T = {"art": ["Arcos concéntricos cruzados por un trazo menta", "Concentric arcs crossed by a mint line"], "k1": ["Consultoría para fintechs de Latam", "Consulting for Latin American fintechs"], "k2": ["Crece con orden.", "Scale with order."], "k3": ["Cruza con", "Cross with"], "k4": ["respaldo.", "backup."], "k5": ["Operaciones y expansión para fintechs de Latinoamérica.", "Operations and expansion for Latin American fintechs."], "k6": ["Te acompañamos a cruzar, paso a paso.", "We stay with you, step by step."], "k7": ["Ver servicios", "See services"], "k8": ["Hablemos", "Let's talk"], "k9": ["Operación", "Operations"], "k10": ["Equipo y procesos alineados", "Team and processes aligned"], "k11": ["Expansión", "Expansion"], "k12": ["Nuevos mercados con respaldo", "New markets, backed up"], "k13": ["Corredores", "Corridors"], "k14": ["Entrada y salida de fondos", "Funds in and out"], "k15": ["Estrategia en ejecución", "Strategy into execution"], "k16": ["Prioridades y responsables claros.", "Clear priorities and owners."], "k17": ["Sistemas y procesos", "Systems and processes"], "k18": ["Procesos claros y el equipo correcto en cada rol.", "Clear processes and the right team in every role."], "k19": ["KPIs y salud financiera", "KPIs and financial health"], "k20": ["Decisiones con datos.", "Decisions backed by data."], "k21": ["Diagnóstico operativo", "Operational assessment"], "k22": ["Cómo opera hoy el negocio.", "How the business runs today."], "k23": ["Plan de ejecución", "Execution plan"], "k24": ["Prioridades, responsables y métricas.", "Priorities, owners and metrics."], "k25": ["Ejecución acompañada", "Guided execution"], "k26": ["Trabajamos dentro de tu equipo.", "We work inside your team."], "k27": ["Traspaso", "Handover"], "k28": ["Todo funciona sin nosotros.", "Everything runs without us."], "k29": ["Roles superpuestos o vacíos", "Overlapping or empty roles"], "k30": ["Incidentes que se repiten", "Recurring incidents"], "k31": ["Cada área con sus propios números", "Every team with its own numbers"], "k32": ["Un fundador haciendo de COO a la fuerza", "A founder acting as COO by default"], "k33": ["Servicio principal · para fintechs en Latam", "Core service · for fintechs in Latin America"], "k34": ["COO fraccional", "Fractional COO"], "k35": ["Continúa creciendo sin que la operación", "Keep growing without operations"], "k36": ["te frene.", "slowing you down."], "k37": ["Liderazgo operativo senior por un período definido, sin el costo de un ejecutivo de tiempo completo.", "Senior operational leadership for a fixed term, without the cost of a full-time executive."], "k38": ["Cómo trabajamos", "How we work"], "k39": ["Señales de que es el momento", "Signs it's time"], "k40": ["Tactical Ops Team", "Tactical Ops Team"], "k41": ["¿Un problema específico?", "Have a specific problem?"], "k42": ["Lo resolvemos sin el proceso estándar, con alcance, entregable y plazo por escrito.", "We solve it without the standard process, with scope, deliverable and timeline in writing."], "k43": ["Cierre financiero", "Financial close"], "k44": ["Proceso de soporte", "Support process"], "k45": ["Tablero de KPIs", "KPI dashboard"], "k46": ["Cuéntanos el problema", "Tell us the problem"], "cor": ["Corredor de entrada y salida", "Corridor in and out"], "k48": ["Entrada", "In"], "k49": ["Salida", "Out"], "k50": ["Tu fintech", "Your fintech"], "k51": ["Licenciada en EE.UU. o Latam", "Licensed in the US or Latam"], "k52": ["Rampas locales", "Local ramps"], "k53": ["Proveedores seleccionados contigo", "Providers selected with you"], "k54": ["País de destino", "Destination country"], "k55": ["Tu primer corredor, operando", "Your first corridor, running"], "k56": ["Los fondos no pasan por Belar: los operan tu fintech y los proveedores.", "Funds never pass through Belar: your fintech and the providers run them."], "k57": ["Entrada", "In"], "k58": ["Salida", "Out"], "k59": ["Tu fintech", "Your fintech"], "k60": ["Con operación lista para crecer", "With operations ready to scale"], "k61": ["Rampas locales", "Local ramps"], "k62": ["Proveedores seleccionados contigo", "Providers selected with you"], "k63": ["Nuevo mercado", "New market"], "k64": ["Tu próximo corredor, operando", "Your next corridor, running"], "k65": ["Los fondos no pasan por Belar: los operan tu fintech y los proveedores.", "Funds never pass through Belar: your fintech and the providers run them."], "k66": ["Plan de entrada recomendado", "Recommended entry plan"], "k67": ["La ruta de entrada que mejor encaja con tu fintech.", "The entry route that best fits your fintech."], "k68": ["Selección de proveedores", "Provider selection"], "k69": ["Comparamos proveedores con criterios documentados y te acompañamos en las negociaciones.", "We compare providers against documented criteria and support you in negotiations."], "k70": ["Diseño del flujo de fondos", "Design of the flow of funds"], "k71": ["Cómo entra y sale el dinero, de punta a punta.", "How money moves in and out, end to end."], "k72": ["Plan piloto con montos topados", "Pilot with capped amounts"], "k73": ["Probamos el corredor con montos limitados antes de escalar.", "We test the corridor with limited amounts before scaling."], "k74": ["Tus clientes ya te piden ese país", "Your customers already ask for that country"], "k75": ["Tienes licencia pero no proveedores locales", "You're licensed but have no local providers"], "k76": ["Debes elegir proveedores sin conocer el mercado", "You must pick providers without knowing the market"], "k77": ["Quieres probar con montos topados antes de comprometerte", "You want to test with capped amounts before committing"], "k78": ["Expansión · para fintechs que entran a Latam", "Expansion · for fintechs entering Latin America"], "k79": ["Referencia: 8–10 semanas", "Reference: 8–10 weeks"], "k80": ["Abre tu primer corredor", "Open your first corridor"], "k81": ["en un nuevo país.", "in a new country."], "k82": ["Te acompañamos a seleccionar proveedores locales, diseñar el flujo de fondos y poner a operar tu primer corredor. Para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.", "We help you select local providers, design the flow of funds and get your first corridor running. For payments, remittance, wallet or stablecoin fintechs licensed in the US or Latam that don't operate in the country they want to enter yet."], "k83": ["Cuatro pasos hasta tu primer corredor", "Four steps to your first corridor"], "k84": ["Tactical Orchestrator", "Tactical Orchestrator"], "k85": ["¿Solo necesitas resolver algo puntual?", "Just need to solve one specific thing?"], "k86": ["Resolvemos necesidades específicas a través de alianzas con empresas locales, con alcance, entregable y plazo por escrito.", "We solve specific needs through partnerships with local companies, with scope, deliverable and timeline in writing."], "k87": ["Ruta regulatoria de entrada", "Regulatory entry route"], "k88": ["Riesgo de cumplimiento y screening", "Compliance risk and screening"], "k89": ["Representación temporal", "Temporary representation"], "k90": ["Integraciones con proveedores locales", "Integrations with local providers"], "k91": ["Cuéntanos la necesidad", "Tell us the need"], "k92": ["Señales de que es el momento", "Signs it's time"], "k93": ["Una operación que sostiene el crecimiento", "An operation that carries growth"], "k94": ["Roles, procesos y prioridades claros para que crecer no desordene al equipo.", "Clear roles, processes and priorities so growth doesn't disorder the team."], "k95": ["Decisiones con datos", "Decisions backed by data"], "k96": ["KPIs y salud financiera que todas las áreas leen igual.", "KPIs and financial health that every team reads the same way."], "k97": ["Nuevos mercados con respaldo", "New markets, backed up"], "k98": ["Proveedores locales, flujo de fondos y pruebas controladas antes de escalar.", "Local providers, flow of funds and controlled tests before scaling."], "k99": ["Lo que cambia", "What changes"], "k100": ["Menos fricción para crecer,", "Less friction to grow,"], "k101": ["más respaldo para expandirte.", "more backing to expand."], "k102": ["Trabajamos junto a tu equipo para que la operación deje de ser el freno y la expansión deje de ser un salto al vacío.", "We work alongside your team so operations stop being the brake and expansion stops being a leap in the dark."], "k103": ["Cada rol con su responsable", "Every role with an owner"], "k104": ["Incidentes que dejan de repetirse", "Incidents that stop repeating"], "k105": ["Una sola versión de los números", "One version of the numbers"], "k106": ["Fundadores de vuelta en la estrategia", "Founders back on strategy"], "k107": ["Apoyo operativo", "Operational support"], "k108": ["Experiencia operativa", "Operational experience"], "k109": ["dentro de tu equipo.", "inside your team."], "k110": ["Trabajamos a tu lado, no desde afuera: ordenamos prioridades, procesos y responsables, y lo dejamos funcionando sin depender de nosotros.", "We work beside you, not from the outside: we sort out priorities, processes and owners, and leave it running without depending on us."], "k111": ["Lo que empiezas a notar", "What you start to notice"], "k112": ["Proveedores seleccionados contigo", "Providers selected with you"], "k113": ["Flujo de fondos de punta a punta", "Flow of funds, end to end"], "k114": ["Pruebas con montos topados antes de escalar", "Pilots with capped amounts before scaling"], "k115": ["Expansión y nuevos corredores", "Expansion and new corridors"], "k116": ["Abre nuevos corredores", "Open new corridors"], "k117": ["sin ir a ciegas.", "without flying blind."], "k118": ["Te acompañamos a conectar tu fintech con proveedores locales, a diseñar cómo entra y sale el dinero y a probar el corredor antes de escalar.", "We help you connect your fintech with local providers, design how money moves in and out, and test the corridor before scaling."], "k119": ["¿Quieres ver cómo lo hacemos?", "Want to see how we do it?"], "k120": ["Conoce nuestras", "Meet our"], "k121": ["dos líneas de trabajo.", "two lines of work."], "k122": ["Ver servicios", "See services"], "k123": ["Operación", "Operations"], "k124": ["Liderazgo operativo senior dentro de tu equipo, por un período definido.", "Senior operational leadership inside your team, for a fixed term."], "k125": ["Incluye Tactical Ops Team para un problema específico.", "Includes Tactical Ops Team for one specific problem."], "k126": ["Ver detalle", "See details"], "k127": ["Expansión", "Expansion"], "k128": ["Tu primer corredor de entrada y salida en un nuevo país de Latam. Referencia: 8–10 semanas.", "Your first corridor in and out of a new Latin American country. Reference: 8–10 weeks."], "k129": ["Incluye Tactical Orchestrator para una necesidad puntual.", "Includes Tactical Orchestrator for one specific need."], "k130": ["Ver detalle", "See details"], "k131": ["Servicios", "Services"], "k132": ["Dos líneas de trabajo,", "Two lines of work,"], "k133": ["un mismo acompañamiento.", "one way of working."], "k134": ["Elige la que encaja con lo que tu fintech necesita hoy. Cada línea tiene un servicio principal y un equipo táctico para lo puntual.", "Pick the one that fits what your fintech needs today. Each line has a core service and a tactical team for one-off needs."], "k135": ["No movemos fondos", "We never move funds"], "k136": ["Nunca recibimos ni custodiamos dinero.", "We never receive or hold money."], "k137": ["No cotizamos tipos de cambio", "No exchange rates"], "k138": ["Ni a nombre propio ni con garantías.", "Not in our name, not guaranteed."], "k139": ["Sin opinión legal propia", "No legal opinions of our own"], "k140": ["Para eso, abogados aliados.", "For that, partner lawyers."], "k141": ["Comisiones a la vista", "Commissions in the open"], "k142": ["Las de proveedores, siempre por escrito.", "Provider commissions, always in writing."], "k143": ["Límites", "Boundaries"], "k144": ["Asesoramos.", "We advise."], "k145": ["No operamos tu dinero.", "We don't operate your money."], "k146": ["Reglas claras, escritas en cada contrato.", "Clear rules, written into every contract."], "k147": ["¿Belar mueve o custodia dinero?", "Does Belar move or hold money?"], "k148": ["No. Nunca recibimos, custodiamos ni movemos fondos. Los flujos los operan tu fintech y los proveedores locales; nosotros te acompañamos a diseñarlos y ponerlos a funcionar.", "No. We never receive, hold or move funds. Your fintech and the local providers run the flows; we help you design them and get them working."], "k149": ["¿Dan opinión legal?", "Do you give legal opinions?"], "k150": ["No damos opinión legal propia. La ruta regulatoria, el cumplimiento y el screening se validan con abogados aliados.", "We don't give legal opinions of our own. The regulatory route, compliance and screening are validated with partner lawyers."], "k151": ["¿Para quién es cada servicio?", "Who is each service for?"], "k152": ["Embedded COO es para fintechs de Latam con producto y tracción cuyo crecimiento superó a la organización. Latam Launchpad es para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.", "Embedded COO is for Latin American fintechs with a live product and traction whose growth has outrun the organization. Latam Launchpad is for payments, remittance, wallet or stablecoin fintechs licensed in the US or Latam that don't operate in the country they want to enter yet."], "k153": ["¿Qué es un equipo táctico?", "What is a tactical team?"], "k154": ["Un servicio para resolver un problema o una necesidad específica sin pasar por el proceso estándar, con alcance, entregable y plazo por escrito. Existe en cada línea: Tactical Ops Team para operaciones y Tactical Orchestrator para expansión.", "A service to solve one specific problem or need without going through the standard process, with scope, deliverable and timeline in writing. There is one in each line: Tactical Ops Team for operations and Tactical Orchestrator for expansion."], "k155": ["¿Cuánto toma y cuánto cuesta?", "How long does it take and what does it cost?"], "k156": ["Latam Launchpad tiene una referencia de 8 a 10 semanas, con la evaluación de la ruta incluida. Embedded COO dura un período definido según el alcance. El precio depende del alcance: escríbenos y te respondemos con un siguiente paso.", "Latam Launchpad has a reference of 8 to 10 weeks, with the route assessment included. Embedded COO runs for a fixed term depending on scope. Pricing depends on scope: write to us and we'll reply with a next step."], "k157": ["Preguntas frecuentes", "FAQ"], "k158": ["Lo que suelen", "What teams usually"], "k159": ["preguntar.", "ask."], "k160": ["Hablemos", "Let's talk"], "k161": ["Cuéntanos dónde", "Tell us where"], "k162": ["está tu fintech.", "your fintech is."], "k163": ["Te respondemos con un siguiente paso.", "We'll reply with a next step."], "k164": ["Mostrar correo", "Show email"], "k165": ["Copiar correo", "Copy email"], "k166": ["Inicio", "Home"], "k167": ["Servicios", "Services"], "k168": ["Contacto", "Contact"], "k169": ["Belar Consulting. Los servicios no constituyen asesoría legal ni financiera.", "Belar Consulting. Services do not constitute legal or financial advice."]};
+  var idx = 0;
+  try {
+    var saved = localStorage.getItem("belar-lang");
+    if (saved === "en") idx = 1;
+    else if (saved === "es") idx = 0;
+    else idx = ((navigator.language || "es").toLowerCase().indexOf("es") === 0) ? 0 : 1;
+  } catch (e) { idx = ((navigator.language || "es").toLowerCase().indexOf("es") === 0) ? 0 : 1; }
+  var btn = document.getElementById("lang");
+  function apply() {
+    var nodes = document.querySelectorAll("[data-k]");
+    for (var i = 0; i < nodes.length; i++) { var v = T[nodes[i].getAttribute("data-k")]; if (v) nodes[i].textContent = v[idx]; }
+    var arts = document.querySelectorAll("[data-aria]");
+    for (var j = 0; j < arts.length; j++) { var a = T[arts[j].getAttribute("data-aria")]; if (a) arts[j].setAttribute("aria-label", a[idx]); }
+    document.documentElement.lang = idx === 0 ? "es" : "en";
+    btn.textContent = idx === 0 ? "EN" : "ES";
+  }
+  btn.addEventListener("click", function () {
+    idx = idx === 0 ? 1 : 0; apply();
+    try { localStorage.setItem("belar-lang", idx === 0 ? "es" : "en"); } catch (e) {}
+  });
+  var copy = document.getElementById("copy"), mail = document.getElementById("mail"), reveal = document.getElementById("reveal");
+  function addr() { return ["hello", "@", "belarconsulting", ".", "com"].join(""); }
+  reveal.addEventListener("click", function () {
+    mail.href = "mailto:" + addr(); mail.textContent = addr();
+    mail.hidden = false; copy.hidden = false; reveal.hidden = true;
+  });
+  copy.addEventListener("click", function () {
+    var done = function (ok) {
+      var span = copy.querySelector("span");
+      if (ok) { span.removeAttribute("data-k"); span.textContent = idx === 0 ? "Copiado" : "Copied"; setTimeout(function () { span.setAttribute("data-k", span.getAttribute("data-kk")); apply(); }, 1800); }
+      else { var r = document.createRange(); r.selectNodeContents(mail); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+    };
+    var span = copy.querySelector("span"); span.setAttribute("data-kk", span.getAttribute("data-k"));
+    try { navigator.clipboard.writeText(addr()).then(function () { done(true); }, function () { done(false); }); }
+    catch (e) { done(false); }
+  });
+
+  var pages = { inicio: document.getElementById("p-inicio"), servicios: document.getElementById("p-servicios") };
+  var navLinks = document.querySelectorAll("nav a[data-page]");
+  var current = "inicio";
+  var onServices = { servicios: 1, "embedded-coo": 1, "latam-launchpad": 1, preguntas: 1 };
+  function route() {
+    var h = (location.hash || "").replace("#", "");
+    var page = onServices[h] ? "servicios" : (h === "contacto" ? current : "inicio");
+    current = page;
+    pages.inicio.hidden = page !== "inicio";
+    pages.servicios.hidden = page !== "servicios";
+    for (var i = 0; i < navLinks.length; i++) {
+      var d = navLinks[i].getAttribute("data-page");
+      if (d === (h === "contacto" ? "contacto" : page)) navLinks[i].setAttribute("aria-current", "page"); else navLinks[i].removeAttribute("aria-current");
+    }
+    var target = (h && h !== "servicios" && h !== "inicio") ? document.getElementById(h) : null;
+    setTimeout(function () {
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      else window.scrollTo(0, 0);
+    }, 0);
+  }
+  window.addEventListener("hashchange", route);
+  route();
+  apply();
+})();
+</script>
+</body>
+</html>
