@@ -16,22 +16,27 @@
 /* Layout concept: a dark-first page where one mint line, the corridor, runs from the hero arcs to the closing contact. Sections are separated by quiet hairlines, steps and tactical offers sit on raised surfaces. */
 :root {
   --bg: #0A1A2C; --surface: #12304D; --surface2: #0E2540; --ink: #EAF2FF; --muted: #9FB3CB; --line: #24486B;
-  --accent: #3DDBA0; --accent-ink: #0A1A2C; --sky: #8FB8FF; --glow: rgba(61,219,160,.10);
+  --accent: #3DDBA0; --accent-ink: #0A1A2C; --sky: #8FB8FF; --glow: rgba(61,219,160,.12);
+  --top-bg: #12304D; --top-surface: #1A4067; --top-line: #35618C;
   --font: "Outfit", "Segoe UI", system-ui, sans-serif;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
   --bg: #EAF2FF; --surface: #F7FAFF; --surface2: #F1F6FF; --ink: #0A1A2C; --muted: #3F566F; --line: #C5D4EA;
-  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08); color-scheme: light; } }
+  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08);
+  --top-bg: #D5E3F8; --top-surface: #EAF2FF; --top-line: #A9C0E0; color-scheme: light; } }
 :root[data-theme="light"] {
   --bg: #EAF2FF; --surface: #F7FAFF; --surface2: #F1F6FF; --ink: #0A1A2C; --muted: #3F566F; --line: #C5D4EA;
-  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08); color-scheme: light; }
+  --accent: #0B7A57; --accent-ink: #FFFFFF; --sky: #2A5DB0; --glow: rgba(11,122,87,.08);
+  --top-bg: #D5E3F8; --top-surface: #EAF2FF; --top-line: #A9C0E0; color-scheme: light; }
 [hidden] { display: none !important; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-weight: 300; font-size: 18px; line-height: 1.6;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.wrap { max-width: 1180px; margin: 0 auto; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-weight: 300; font-size: 18px; line-height: 1.6; }
+.wrap { max-width: 1212px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top { background: var(--top-bg); --surface: var(--top-surface); --line: var(--top-line); }
+.rest { background: var(--bg); }
+.rest > .wrap > .sec:first-child { border-top: 0; }
 h1, h2, h3, h4, p, ul, ol, dl, dd { margin: 0; }
 a { color: inherit; }
 em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -56,6 +61,7 @@ h1 { font-weight: 300; font-size: clamp(2.6rem, 6vw, 4.9rem); line-height: 1.03;
 .btn { display: inline-block; padding: 13px 26px; border-radius: 999px; font: 500 16px var(--font); text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
 .btn.primary { background: var(--accent); color: var(--accent-ink); }
 .btn.ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+.top .btn.ghost { border-color: var(--muted); }
 .btn.ghost:hover { border-color: var(--accent); }
 .art { width: 100%; height: auto; display: block; }
 .spec { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
@@ -128,6 +134,8 @@ footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size:
 .page[hidden] { display: none; }
 nav a[aria-current="page"] { color: var(--ink); box-shadow: 0 2px 0 var(--accent); padding-bottom: 4px; }
 .sec.first { border-top: 0; padding-top: 40px; }
+.rest > .wrap > .sec.first { padding-top: 80px; }
+.top .sec.first { padding-top: 24px; }
 .body-l.first { margin-top: 0; }
 .sub.spaced { margin-top: 36px; margin-bottom: 4px; }
 ul.checks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
@@ -168,15 +176,14 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><a class="brand" href="#inicio" aria-label="Belar Consulting"><span class="w">Belar<i>.</i></span><span class="s">CONSULTING</span></a><nav aria-label="Principal">
+<main>
+<div class="page" id="p-inicio">
+  <div class="top"><div class="wrap"><header><a class="brand" href="#inicio" aria-label="Belar Consulting"><span class="w">Belar<i>.</i></span><span class="s">CONSULTING</span></a><nav aria-label="Principal">
   <a href="#inicio" data-page="inicio" class="n-home"><span data-k="k166">Inicio</span></a>
   <a href="#servicios" data-page="servicios"><span data-k="k167">Servicios</span></a>
   <a href="#contacto" data-page="contacto"><span data-k="k168">Contacto</span></a>
-  <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+  <button class="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
 </nav></header>
-<main>
-<div class="page" id="p-inicio">
 <section class="hero" id="top">
   <div class="hero-copy">
     <p class="eyebrow" data-k="k1">Consultoría para fintechs de Latam</p>
@@ -200,7 +207,8 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
       <div><dt><span data-k="k13">Corredores</span></dt><dd><span data-k="k14">Entrada y salida de fondos</span></dd></div>
     </dl>
   </div>
-</section>
+</section></div></div>
+  <div class="rest"><div class="wrap">
 <section class="sec first" id="beneficios">
   <div class="sec-head">
     <div>
@@ -257,8 +265,15 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
     <h2><span data-k="k120">Conoce nuestras</span> <em><span data-k="k121">dos líneas de trabajo.</span></em></h2>
   </div>
   <a class="btn primary" href="#servicios"><span data-k="k122">Ver servicios</span></a>
-</section></div>
+</section></div></div>
+</div>
 <div class="page" id="p-servicios" hidden>
+  <div class="top"><div class="wrap"><header><a class="brand" href="#inicio" aria-label="Belar Consulting"><span class="w">Belar<i>.</i></span><span class="s">CONSULTING</span></a><nav aria-label="Principal">
+  <a href="#inicio" data-page="inicio" class="n-home"><span data-k="k166">Inicio</span></a>
+  <a href="#servicios" data-page="servicios"><span data-k="k167">Servicios</span></a>
+  <a href="#contacto" data-page="contacto"><span data-k="k168">Contacto</span></a>
+  <button class="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+</nav></header>
 <section class="sec first" id="servicios-top">
   <div class="sec-head">
     <div>
@@ -268,7 +283,8 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
     <div><p class="body-l" data-k="k134">Elige la que encaja con lo que tu fintech necesita hoy. Cada línea tiene un servicio principal y un equipo táctico para lo puntual.</p></div>
   </div>
   <div class="lines"><a class="line" href="#embedded-coo"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6M6 8l5 8M18 8l-5 8"/></svg></span><p class="label" data-k="k123">Operación</p><h3>Embedded COO</h3><p class="l-body" data-k="k124">Liderazgo operativo senior dentro de tu equipo, por un período definido.</p><p class="l-tact" data-k="k125">Incluye Tactical Ops Team para un problema específico.</p><span class="go"><span data-k="k126">Ver detalle</span> <i aria-hidden="true">&darr;</i></span></a><a class="line" href="#latam-launchpad"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14M14 4l4 4-4 4"/><path d="M20 16H6M10 12l-4 4 4 4"/></svg></span><p class="label" data-k="k127">Expansión</p><h3>Latam Launchpad</h3><p class="l-body" data-k="k128">Tu primer corredor de entrada y salida en un nuevo país de Latam. Referencia: 8–10 semanas.</p><p class="l-tact" data-k="k129">Incluye Tactical Orchestrator para una necesidad puntual.</p><span class="go"><span data-k="k130">Ver detalle</span> <i aria-hidden="true">&darr;</i></span></a></div>
-</section>
+</section></div></div>
+  <div class="rest"><div class="wrap">
 <section class="sec" id="embedded-coo">
   <div class="sec-head">
     <div>
@@ -349,8 +365,9 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
     </div>
     <div class="faq"><details><summary><span data-k="k147">¿Belar mueve o custodia dinero?</span></summary><p data-k="k148">No. Nunca recibimos, custodiamos ni movemos fondos. Los flujos los operan tu fintech y los proveedores locales; nosotros te acompañamos a diseñarlos y ponerlos a funcionar.</p></details><details><summary><span data-k="k149">¿Dan opinión legal?</span></summary><p data-k="k150">No damos opinión legal propia. La ruta regulatoria, el cumplimiento y el screening se validan con abogados aliados.</p></details><details><summary><span data-k="k151">¿Para quién es cada servicio?</span></summary><p data-k="k152">Embedded COO es para fintechs de Latam con producto y tracción cuyo crecimiento superó a la organización. Latam Launchpad es para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.</p></details><details><summary><span data-k="k153">¿Qué es un equipo táctico?</span></summary><p data-k="k154">Un servicio para resolver un problema o una necesidad específica sin pasar por el proceso estándar, con alcance, entregable y plazo por escrito. Existe en cada línea: Tactical Ops Team para operaciones y Tactical Orchestrator para expansión.</p></details><details><summary><span data-k="k155">¿Cuánto toma y cuánto cuesta?</span></summary><p data-k="k156">Latam Launchpad tiene una referencia de 8 a 10 semanas, con la evaluación de la ruta incluida. Embedded COO dura un período definido según el alcance. El precio depende del alcance: escríbenos y te respondemos con un siguiente paso.</p></details></div>
   </div>
-</section></div>
-
+</section></div></div>
+</div>
+<div class="rest"><div class="wrap">
 <section class="sec closing" id="contacto">
   <p class="label" data-k="k160">Hablemos</p>
   <h2 class="big"><span data-k="k161">Cuéntanos dónde</span> <em><span data-k="k162">está tu fintech.</span></em></h2>
@@ -360,10 +377,9 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
     <a class="mail" id="mail" hidden></a>
     <button class="btn ghost" id="copy" type="button" hidden><span data-k="k165">Copiar correo</span></button>
   </div>
-</section>
+</section></div></div>
 </main>
-<footer><span data-k="k169">Belar Consulting. Los servicios no constituyen asesoría legal ni financiera.</span></footer>
-</div>
+<div class="rest"><div class="wrap"><footer><span data-k="k169">Belar Consulting. Los servicios no constituyen asesoría legal ni financiera.</span></footer></div></div>
 <script>
 (function () {
   var T = {"art": ["Arcos concéntricos cruzados por un trazo menta", "Concentric arcs crossed by a mint line"], "k1": ["Consultoría para fintechs de Latam", "Consulting for Latin American fintechs"], "k2": ["Crece con orden.", "Scale with order."], "k3": ["Cruza con", "Cross with"], "k4": ["respaldo.", "backup."], "k5": ["Operaciones y expansión para fintechs de Latinoamérica.", "Operations and expansion for Latin American fintechs."], "k6": ["Te acompañamos a cruzar, paso a paso.", "We stay with you, step by step."], "k7": ["Ver servicios", "See services"], "k8": ["Hablemos", "Let's talk"], "k9": ["Operación", "Operations"], "k10": ["Equipo y procesos alineados", "Team and processes aligned"], "k11": ["Expansión", "Expansion"], "k12": ["Nuevos mercados con respaldo", "New markets, backed up"], "k13": ["Corredores", "Corridors"], "k14": ["Entrada y salida de fondos", "Funds in and out"], "k15": ["Estrategia en ejecución", "Strategy into execution"], "k16": ["Prioridades y responsables claros.", "Clear priorities and owners."], "k17": ["Sistemas y procesos", "Systems and processes"], "k18": ["Procesos claros y el equipo correcto en cada rol.", "Clear processes and the right team in every role."], "k19": ["KPIs y salud financiera", "KPIs and financial health"], "k20": ["Decisiones con datos.", "Decisions backed by data."], "k21": ["Diagnóstico operativo", "Operational assessment"], "k22": ["Cómo opera hoy el negocio.", "How the business runs today."], "k23": ["Plan de ejecución", "Execution plan"], "k24": ["Prioridades, responsables y métricas.", "Priorities, owners and metrics."], "k25": ["Ejecución acompañada", "Guided execution"], "k26": ["Trabajamos dentro de tu equipo.", "We work inside your team."], "k27": ["Traspaso", "Handover"], "k28": ["Todo funciona sin nosotros.", "Everything runs without us."], "k29": ["Roles superpuestos o vacíos", "Overlapping or empty roles"], "k30": ["Incidentes que se repiten", "Recurring incidents"], "k31": ["Cada área con sus propios números", "Every team with its own numbers"], "k32": ["Un fundador haciendo de COO a la fuerza", "A founder acting as COO by default"], "k33": ["Servicio principal · para fintechs en Latam", "Core service · for fintechs in Latin America"], "k34": ["COO fraccional", "Fractional COO"], "k35": ["Continúa creciendo sin que la operación", "Keep growing without operations"], "k36": ["te frene.", "slowing you down."], "k37": ["Liderazgo operativo senior por un período definido, sin el costo de un ejecutivo de tiempo completo.", "Senior operational leadership for a fixed term, without the cost of a full-time executive."], "k38": ["Cómo trabajamos", "How we work"], "k39": ["Señales de que es el momento", "Signs it's time"], "k40": ["Tactical Ops Team", "Tactical Ops Team"], "k41": ["¿Un problema específico?", "Have a specific problem?"], "k42": ["Lo resolvemos sin el proceso estándar, con alcance, entregable y plazo por escrito.", "We solve it without the standard process, with scope, deliverable and timeline in writing."], "k43": ["Cierre financiero", "Financial close"], "k44": ["Proceso de soporte", "Support process"], "k45": ["Tablero de KPIs", "KPI dashboard"], "k46": ["Cuéntanos el problema", "Tell us the problem"], "cor": ["Corredor de entrada y salida", "Corridor in and out"], "k48": ["Entrada", "In"], "k49": ["Salida", "Out"], "k50": ["Tu fintech", "Your fintech"], "k51": ["Licenciada en EE.UU. o Latam", "Licensed in the US or Latam"], "k52": ["Rampas locales", "Local ramps"], "k53": ["Proveedores seleccionados contigo", "Providers selected with you"], "k54": ["País de destino", "Destination country"], "k55": ["Tu primer corredor, operando", "Your first corridor, running"], "k56": ["Los fondos no pasan por Belar: los operan tu fintech y los proveedores.", "Funds never pass through Belar: your fintech and the providers run them."], "k57": ["Entrada", "In"], "k58": ["Salida", "Out"], "k59": ["Tu fintech", "Your fintech"], "k60": ["Con operación lista para crecer", "With operations ready to scale"], "k61": ["Rampas locales", "Local ramps"], "k62": ["Proveedores seleccionados contigo", "Providers selected with you"], "k63": ["Nuevo mercado", "New market"], "k64": ["Tu próximo corredor, operando", "Your next corridor, running"], "k65": ["Los fondos no pasan por Belar: los operan tu fintech y los proveedores.", "Funds never pass through Belar: your fintech and the providers run them."], "k66": ["Plan de entrada recomendado", "Recommended entry plan"], "k67": ["La ruta de entrada que mejor encaja con tu fintech.", "The entry route that best fits your fintech."], "k68": ["Selección de proveedores", "Provider selection"], "k69": ["Comparamos proveedores con criterios documentados y te acompañamos en las negociaciones.", "We compare providers against documented criteria and support you in negotiations."], "k70": ["Diseño del flujo de fondos", "Design of the flow of funds"], "k71": ["Cómo entra y sale el dinero, de punta a punta.", "How money moves in and out, end to end."], "k72": ["Plan piloto con montos topados", "Pilot with capped amounts"], "k73": ["Probamos el corredor con montos limitados antes de escalar.", "We test the corridor with limited amounts before scaling."], "k74": ["Tus clientes ya te piden ese país", "Your customers already ask for that country"], "k75": ["Tienes licencia pero no proveedores locales", "You're licensed but have no local providers"], "k76": ["Debes elegir proveedores sin conocer el mercado", "You must pick providers without knowing the market"], "k77": ["Quieres probar con montos topados antes de comprometerte", "You want to test with capped amounts before committing"], "k78": ["Expansión · para fintechs que entran a Latam", "Expansion · for fintechs entering Latin America"], "k79": ["Referencia: 8–10 semanas", "Reference: 8–10 weeks"], "k80": ["Abre tu primer corredor", "Open your first corridor"], "k81": ["en un nuevo país.", "in a new country."], "k82": ["Te acompañamos a seleccionar proveedores locales, diseñar el flujo de fondos y poner a operar tu primer corredor. Para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.", "We help you select local providers, design the flow of funds and get your first corridor running. For payments, remittance, wallet or stablecoin fintechs licensed in the US or Latam that don't operate in the country they want to enter yet."], "k83": ["Cuatro pasos hasta tu primer corredor", "Four steps to your first corridor"], "k84": ["Tactical Orchestrator", "Tactical Orchestrator"], "k85": ["¿Solo necesitas resolver algo puntual?", "Just need to solve one specific thing?"], "k86": ["Resolvemos necesidades específicas a través de alianzas con empresas locales, con alcance, entregable y plazo por escrito.", "We solve specific needs through partnerships with local companies, with scope, deliverable and timeline in writing."], "k87": ["Ruta regulatoria de entrada", "Regulatory entry route"], "k88": ["Riesgo de cumplimiento y screening", "Compliance risk and screening"], "k89": ["Representación temporal", "Temporary representation"], "k90": ["Integraciones con proveedores locales", "Integrations with local providers"], "k91": ["Cuéntanos la necesidad", "Tell us the need"], "k92": ["Señales de que es el momento", "Signs it's time"], "k93": ["Una operación que sostiene el crecimiento", "An operation that carries growth"], "k94": ["Roles, procesos y prioridades claros para que crecer no desordene al equipo.", "Clear roles, processes and priorities so growth doesn't disorder the team."], "k95": ["Decisiones con datos", "Decisions backed by data"], "k96": ["KPIs y salud financiera que todas las áreas leen igual.", "KPIs and financial health that every team reads the same way."], "k97": ["Nuevos mercados con respaldo", "New markets, backed up"], "k98": ["Proveedores locales, flujo de fondos y pruebas controladas antes de escalar.", "Local providers, flow of funds and controlled tests before scaling."], "k99": ["Lo que cambia", "What changes"], "k100": ["Menos fricción para crecer,", "Less friction to grow,"], "k101": ["más respaldo para expandirte.", "more backing to expand."], "k102": ["Trabajamos junto a tu equipo para que la operación deje de ser el freno y la expansión deje de ser un salto al vacío.", "We work alongside your team so operations stop being the brake and expansion stops being a leap in the dark."], "k103": ["Cada rol con su responsable", "Every role with an owner"], "k104": ["Incidentes que dejan de repetirse", "Incidents that stop repeating"], "k105": ["Una sola versión de los números", "One version of the numbers"], "k106": ["Fundadores de vuelta en la estrategia", "Founders back on strategy"], "k107": ["Apoyo operativo", "Operational support"], "k108": ["Experiencia operativa", "Operational experience"], "k109": ["dentro de tu equipo.", "inside your team."], "k110": ["Trabajamos a tu lado, no desde afuera: ordenamos prioridades, procesos y responsables, y lo dejamos funcionando sin depender de nosotros.", "We work beside you, not from the outside: we sort out priorities, processes and owners, and leave it running without depending on us."], "k111": ["Lo que empiezas a notar", "What you start to notice"], "k112": ["Proveedores seleccionados contigo", "Providers selected with you"], "k113": ["Flujo de fondos de punta a punta", "Flow of funds, end to end"], "k114": ["Pruebas con montos topados antes de escalar", "Pilots with capped amounts before scaling"], "k115": ["Expansión y nuevos corredores", "Expansion and new corridors"], "k116": ["Abre nuevos corredores", "Open new corridors"], "k117": ["sin ir a ciegas.", "without flying blind."], "k118": ["Te acompañamos a conectar tu fintech con proveedores locales, a diseñar cómo entra y sale el dinero y a probar el corredor antes de escalar.", "We help you connect your fintech with local providers, design how money moves in and out, and test the corridor before scaling."], "k119": ["¿Quieres ver cómo lo hacemos?", "Want to see how we do it?"], "k120": ["Conoce nuestras", "Meet our"], "k121": ["dos líneas de trabajo.", "two lines of work."], "k122": ["Ver servicios", "See services"], "k123": ["Operación", "Operations"], "k124": ["Liderazgo operativo senior dentro de tu equipo, por un período definido.", "Senior operational leadership inside your team, for a fixed term."], "k125": ["Incluye Tactical Ops Team para un problema específico.", "Includes Tactical Ops Team for one specific problem."], "k126": ["Ver detalle", "See details"], "k127": ["Expansión", "Expansion"], "k128": ["Tu primer corredor de entrada y salida en un nuevo país de Latam. Referencia: 8–10 semanas.", "Your first corridor in and out of a new Latin American country. Reference: 8–10 weeks."], "k129": ["Incluye Tactical Orchestrator para una necesidad puntual.", "Includes Tactical Orchestrator for one specific need."], "k130": ["Ver detalle", "See details"], "k131": ["Servicios", "Services"], "k132": ["Dos líneas de trabajo,", "Two lines of work,"], "k133": ["un mismo acompañamiento.", "one way of working."], "k134": ["Elige la que encaja con lo que tu fintech necesita hoy. Cada línea tiene un servicio principal y un equipo táctico para lo puntual.", "Pick the one that fits what your fintech needs today. Each line has a core service and a tactical team for one-off needs."], "k135": ["No movemos fondos", "We never move funds"], "k136": ["Nunca recibimos ni custodiamos dinero.", "We never receive or hold money."], "k137": ["No cotizamos tipos de cambio", "No exchange rates"], "k138": ["Ni a nombre propio ni con garantías.", "Not in our name, not guaranteed."], "k139": ["Sin opinión legal propia", "No legal opinions of our own"], "k140": ["Para eso, abogados aliados.", "For that, partner lawyers."], "k141": ["Comisiones a la vista", "Commissions in the open"], "k142": ["Las de proveedores, siempre por escrito.", "Provider commissions, always in writing."], "k143": ["Límites", "Boundaries"], "k144": ["Asesoramos.", "We advise."], "k145": ["No operamos tu dinero.", "We don't operate your money."], "k146": ["Reglas claras, escritas en cada contrato.", "Clear rules, written into every contract."], "k147": ["¿Belar mueve o custodia dinero?", "Does Belar move or hold money?"], "k148": ["No. Nunca recibimos, custodiamos ni movemos fondos. Los flujos los operan tu fintech y los proveedores locales; nosotros te acompañamos a diseñarlos y ponerlos a funcionar.", "No. We never receive, hold or move funds. Your fintech and the local providers run the flows; we help you design them and get them working."], "k149": ["¿Dan opinión legal?", "Do you give legal opinions?"], "k150": ["No damos opinión legal propia. La ruta regulatoria, el cumplimiento y el screening se validan con abogados aliados.", "We don't give legal opinions of our own. The regulatory route, compliance and screening are validated with partner lawyers."], "k151": ["¿Para quién es cada servicio?", "Who is each service for?"], "k152": ["Embedded COO es para fintechs de Latam con producto y tracción cuyo crecimiento superó a la organización. Latam Launchpad es para fintechs de pagos, remesas, billeteras o stablecoins licenciadas en EE.UU. o Latam que aún no operan en el país al que quieren entrar.", "Embedded COO is for Latin American fintechs with a live product and traction whose growth has outrun the organization. Latam Launchpad is for payments, remittance, wallet or stablecoin fintechs licensed in the US or Latam that don't operate in the country they want to enter yet."], "k153": ["¿Qué es un equipo táctico?", "What is a tactical team?"], "k154": ["Un servicio para resolver un problema o una necesidad específica sin pasar por el proceso estándar, con alcance, entregable y plazo por escrito. Existe en cada línea: Tactical Ops Team para operaciones y Tactical Orchestrator para expansión.", "A service to solve one specific problem or need without going through the standard process, with scope, deliverable and timeline in writing. There is one in each line: Tactical Ops Team for operations and Tactical Orchestrator for expansion."], "k155": ["¿Cuánto toma y cuánto cuesta?", "How long does it take and what does it cost?"], "k156": ["Latam Launchpad tiene una referencia de 8 a 10 semanas, con la evaluación de la ruta incluida. Embedded COO dura un período definido según el alcance. El precio depende del alcance: escríbenos y te respondemos con un siguiente paso.", "Latam Launchpad has a reference of 8 to 10 weeks, with the route assessment included. Embedded COO runs for a fixed term depending on scope. Pricing depends on scope: write to us and we'll reply with a next step."], "k157": ["Preguntas frecuentes", "FAQ"], "k158": ["Lo que suelen", "What teams usually"], "k159": ["preguntar.", "ask."], "k160": ["Hablemos", "Let's talk"], "k161": ["Cuéntanos dónde", "Tell us where"], "k162": ["está tu fintech.", "your fintech is."], "k163": ["Te respondemos con un siguiente paso.", "We'll reply with a next step."], "k164": ["Mostrar correo", "Show email"], "k165": ["Copiar correo", "Copy email"], "k166": ["Inicio", "Home"], "k167": ["Servicios", "Services"], "k168": ["Contacto", "Contact"], "k169": ["Belar Consulting. Los servicios no constituyen asesoría legal ni financiera.", "Belar Consulting. Services do not constitute legal or financial advice."]};
@@ -374,21 +390,21 @@ ul.checks li { display: flex; gap: 12px; align-items: center; padding: 14px 16px
     else if (saved === "es") idx = 0;
     else idx = ((navigator.language || "es").toLowerCase().indexOf("es") === 0) ? 0 : 1;
   } catch (e) { idx = ((navigator.language || "es").toLowerCase().indexOf("es") === 0) ? 0 : 1; }
-  var btn = document.getElementById("lang");
+  var btns = document.querySelectorAll(".lang");
   function apply() {
     var nodes = document.querySelectorAll("[data-k]");
     for (var i = 0; i < nodes.length; i++) { var v = T[nodes[i].getAttribute("data-k")]; if (v) nodes[i].textContent = v[idx]; }
     var arts = document.querySelectorAll("[data-aria]");
     for (var j = 0; j < arts.length; j++) { var a = T[arts[j].getAttribute("data-aria")]; if (a) arts[j].setAttribute("aria-label", a[idx]); }
     document.documentElement.lang = idx === 0 ? "es" : "en";
-    btn.textContent = idx === 0 ? "EN" : "ES";
+    for (var b = 0; b < btns.length; b++) btns[b].textContent = idx === 0 ? "EN" : "ES";
   }
-  btn.addEventListener("click", function () {
+  for (var c = 0; c < btns.length; c++) btns[c].addEventListener("click", function () {
     idx = idx === 0 ? 1 : 0; apply();
     try { localStorage.setItem("belar-lang", idx === 0 ? "es" : "en"); } catch (e) {}
   });
   var copy = document.getElementById("copy"), mail = document.getElementById("mail"), reveal = document.getElementById("reveal");
-  function addr() { return ["hello", "@", "belarconsulting", ".", "com"].join(""); }
+  function addr() { return ["hola", "@", "belarconsulting", ".", "com"].join(""); }
   reveal.addEventListener("click", function () {
     mail.href = "mailto:" + addr(); mail.textContent = addr();
     mail.hidden = false; copy.hidden = false; reveal.hidden = true;
